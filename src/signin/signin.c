@@ -4,6 +4,8 @@
 #include <sys/types.h>
 #include <string.h>
 
+#include "../messenger/messenger.h"
+
 #define MAX_USERCFG_LINE_LEN 512
 #define MAX_USERS 10
 
@@ -11,6 +13,8 @@ typedef struct {
 	char uname[256];
 	char passwd[256];
 }User;
+
+int signInOption();
 
 char* getUserList(){
 	char *homedir=getenv("HOME");
@@ -55,9 +59,7 @@ char* getUserList(){
 	}
 
 	 //char *getCharOpt;
-	int getOption;
-
-	scanf("%d", &getOption);
+	int getOption = signInOption();
 
 	if(strcmp(userlist[getOption].uname, "")!=0){
 		printf("user existance = True");
@@ -68,10 +70,16 @@ char* getUserList(){
 	//getOption = itoa(getCharOpt);
 
 	free(userlist);
-	return "delta";
+
+	startMessenger();
+
+	return;
 }
 
 int signInOption(){
 	//printf("NONE");
-	return 0;
+	int opt;
+	scanf("%d", &opt);
+
+	return opt;
 }
