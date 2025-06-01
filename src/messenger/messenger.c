@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <curl/curl.h>
 
 void getChatList() {}
 
@@ -8,7 +9,9 @@ int getChatInfo() {}
 
 int sendMessage() {}
 
-void drawChat() {}
+void drawChat(int chat_id, char** jwt_pair) {
+
+}
 
 
 
